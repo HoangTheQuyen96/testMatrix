@@ -15,6 +15,7 @@ message listAvailableSeatsRequest{}
 
 message listAvailableSeatsResponse{
     repeated Seat seats = 1;
+    int32 totals = 2;
 }
 
 message reserveSeatsRequest{

@@ -7,15 +7,18 @@ const listAvailableSeatsRequest = (ctx) => {
     collum: element % process.env.COLLUM,
   }));
 
-  ctx.res = { seats: dataResponse };
+  
+  ctx.res = { seats: dataResponse, totals: dataResponse.length };
 };
 
 const reserveSeats = (ctx) => {
   const { seats } = ctx.req;
 
   const seatsIndex = seats.map(
-    (seat) => seat.row * process.env.ROW + seat.collum
+    (seat) => seat.row * process.env.COLLUM + seat.collum
   );
+
+  console.log(seatsIndex)
 
   seatsIndex.forEach((element) => {
     if (!indexSeatsAvalibles.includes(element)) {
