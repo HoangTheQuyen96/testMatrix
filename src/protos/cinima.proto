@@ -1,0 +1,26 @@
+syntax = "proto3";
+package cinima;
+
+service CinemaService {
+    rpc listAvailableSeats (listAvailableSeatsRequest) returns (listAvailableSeatsResponse);
+    rpc reserveSeats (reserveSeatsRequest) returns (reserveSeatsResponse);
+}
+
+message Seat{
+    int32 row = 1;
+    int32 collum = 2;
+}
+
+message listAvailableSeatsRequest{}
+
+message listAvailableSeatsResponse{
+    repeated Seat seats = 1;
+}
+
+message reserveSeatsRequest{
+    repeated Seat seats = 1;
+}
+
+message reserveSeatsResponse{
+    repeated Seat seats = 1;
+}
